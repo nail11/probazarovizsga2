@@ -2,7 +2,9 @@
 
 Készíts egy Python python applikációt (egy darab python file) ami selenium-ot használ. 
 
-A program töltse be a charterbooker app-ot az [https://witty-hill-0acfceb03.azurestaticapps.net/charterbooker.html](https://witty-hill-0acfceb03.azurestaticapps.net/charterbooker.html) oldalról.
+A program töltse be a charterbooker app-ot az 
+[https://witty-hill-0acfceb03.azurestaticapps.net/charterbooker.html]
+(https://witty-hill-0acfceb03.azurestaticapps.net/charterbooker.html) oldalról.
 
 Feladatod, hogy automatizáld selenium webdriverrel a charterbooker app tesztelését.
 
@@ -10,7 +12,9 @@ Az ellenőrzésekhez __NEM__ kell teszt keretrendszert használnod (mint pl a py
 Egyszerűen használj elágazásokat vagy `assert` összehasonlításokat.
 
 * Teszteld le a többoldalas formanyomtatvány működését. 
-* Ellenőrizd a helyes kitöltésre adott választ: "Your message was sent successfully. Thanks! We'll be in touch as soon as we can, which is usually like lightning (Unless we're sailing or eating tacos!)."
+* Ellenőrizd a helyes kitöltésre adott választ: "Your message was sent successfully.
+  Thanks! We'll be in touch as soon as we can, which is usually like lightning (Unless we're sailing or 
+  eating tacos!)."
 * Készíts tesztesetet az e-mail cím validációjára.
 
 

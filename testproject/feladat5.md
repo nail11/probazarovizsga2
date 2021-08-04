@@ -2,7 +2,9 @@
 
 Készíts egy Python python applikációt (egy darab python file) ami selenium-ot használ. 
 
-A program töltse be a Periodusos rendszer app-ot az [https://witty-hill-0acfceb03.azurestaticapps.net/periodic_table.html](https://witty-hill-0acfceb03.azurestaticapps.net/periodic_table.html) oldalról.
+A program töltse be a Periodusos rendszer app-ot az
+[https://witty-hill-0acfceb03.azurestaticapps.net/periodic_table.html]
+(https://witty-hill-0acfceb03.azurestaticapps.net/periodic_table.html) oldalról.
 
 Feladatod, hogy leteszteld, hogy az alábbi sorrendben jelennek-e meg az elemek a weblapon:
 

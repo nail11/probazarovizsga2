@@ -2,7 +2,9 @@
 
 Készíts egy Python python applikációt (egy darab python file) ami selenium-ot használ. 
 
-A program töltse be a sales Film register app-ot az [https://witty-hill-0acfceb03.azurestaticapps.net/film_register.html](https://witty-hill-0acfceb03.azurestaticapps.net/film_register.html) oldalról.
+A program töltse be a sales Film register app-ot az
+[https://witty-hill-0acfceb03.azurestaticapps.net/film_register.html]
+(https://witty-hill-0acfceb03.azurestaticapps.net/film_register.html) oldalról.
 
 Feladatod, hogy automatizáld az alkalmazás két funkciójának a tesztelését
 * Teszteld le, hogy betöltés után megjelennek filmek az alkalmazásban, méghozzá 24 db.
