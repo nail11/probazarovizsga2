@@ -1,12 +1,5 @@
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
-from selenium.webdriver.common.by import By
-from selenium.webdriver.common.keys import Keys
-from selenium.webdriver.common.action_chains import ActionChains
-import time
-from pathlib import  Path
-import pprint
 
+from lxml import html
 
 from webdriver_manager.chrome import ChromeDriverManager
 from selenium import webdriver
@@ -17,24 +10,27 @@ url = "https://witty-hill-0acfceb03.azurestaticapps.net/mutant_teams.html"
 
 try:
     driver.get(url)
-    frost = driver.find_element_by_xpath('// *[ @ id = "emma-frost"] / h2')
-    hellfire = driver.find_element_by_xpath('//*[@id="hellfire"]')
-    original = driver.find_element_by_xpath('//*[@id="original"]')
+# finding and making list of the names which identifies characters
 
-    #print(frost)
-    #print(frost.text)
-    #print(len(frost))
-    print("Frost attribute" +frost.get_attribute("innerHTML"))
-    print("Frost displayed" + str(frost.is_displayed()))
-    print("Hellfire inner HTML" + hellfire.get_attribute("innerHTML"))
-    print("Original inner HTML" + original.get_attribute("innerHTML"))
-    print(original.is_selected())
-    print(hellfire.is_selected())
-    time.sleep(2)
-    ActionChains(driver).move_to_element(hellfire).click(hellfire).perform()
-    hellfire.click()
+    character_list = []
+    char_element = driver.find_elements_by_tag_name("li")
+    for i in range(len(char_element)):
+        char_name = char_element[0].text
+        character_list.append(char_name)
 
-    print(frost.get_attribute("innerHTML"))
-    print(frost.is_displayed())
+# collecting contents of each line in HTML identified by elements of character_list
+# the text should contain the group of teams which the name belongs to
+
+    root = html.parse("https://witty-hill-0acfceb03.azurestaticapps.net/mutant_teams.html").getroot()
+    # ez nem működik nekem
+    element = root.get_element_by_id("angel")
+    text = element.text_content()
+
+# next steps are
+    # making pairs from groups and names
+    # checking if clicking on different selector radio buttons, the figures, which  belong to the
+    # given teams, jumps out
+
 finally:
-    pass
+    driver.close()
+
