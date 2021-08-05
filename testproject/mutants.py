@@ -18,15 +18,18 @@ try:
         char_name = char_element[0].text
         character_list.append(char_name)
 
-# collecting contents of each line in HTML identified by elements of character_list
+# collecting contents of each line in HTML identified by elements of "character_list"
 # the text should contain the group of teams which the name belongs to
 
     root = html.parse("https://witty-hill-0acfceb03.azurestaticapps.net/mutant_teams.html").getroot()
     # ez nem működik nekem
-    element = root.get_element_by_id("angel")
-    text = element.text_content()
+
+    for j in range(len(character_list)):
+        element = root.get_element_by_id(character_list[j])
+        text_in_html_element = element.text_content()
 
 # next steps are
+    # reading out the group of teams from each "text_in_html_element"
     # making pairs from groups and names
     # checking if clicking on different selector radio buttons, the figures, which  belong to the
     # given teams, jumps out
