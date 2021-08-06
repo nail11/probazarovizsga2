@@ -15,8 +15,8 @@ from datetime import datetime
 # import pprint
 
 options = Options()
-options.add_argument('--headless')
-options.add_argument('--disable-gpu')
+#options.add_argument('--headless')
+#options.add_argument('--disable-gpu')
 
 # In order for ChromeDriverManager to work you must pip install it in your own environment.
 
@@ -39,8 +39,12 @@ try:
     message_text = "Try to do your best !"
     validation_text = "Your message was sent successfully. Thanks! We" + "'" + "ll be in touch as soon as we can, " \
                                                                                "which is usually like lightning (Unless we" + "'" + "re sailing or eating tacos!)."
-    message1 = "Test passed with no domain in email !!"
-    message2 = "Test failed by invalid email (no @ in the email) !!"
+    message1 = "Test passed: app accepted email with no domain in it !!!"
+    #err_message1 =
+    err_message3 = "Test passed: app refused email with no @ in it !!"
+    message3 = "Test failed: app accepted the invalid email (no @ in the email) !!"
+
+    email_err_text = "PLEASE ENTER A VALID EMAIL ADDRESS."
 
     # function "testing_app()" tests the app with different e-mail addresses using test data above
 
@@ -84,12 +88,13 @@ try:
         message.send_keys(message_text)
         send_button.click()
         if e_mail == email_invalid:
-            # assert email_error == "false", message2
-            print("Itt van a baj, nem tudok értékelhető feltételt adni, pl. "
-                  "nem tudom a hamis e-mail-re utaló üzenetet kivenni")
-        val_text = WebDriverWait(driver, 2).until(EC.visibility_of_element_located((By.XPATH,
+            t = driver.find_element_by_id("bf_email-error").text
+            assert email_err_text != t, err_message3
+            print(message3)
+        else:
+            val_text = WebDriverWait(driver, 2).until(EC.visibility_of_element_located((By.XPATH,
                                                                                     '//form[@id="booking-form"]/h2')))
-        v_text = val_text.text
+            v_text = val_text.text
         return v_text
 
 
@@ -121,7 +126,7 @@ try:
 
         print("TC03")
         testing_app(email_invalid)
-        print(message2 + "\n")
+        print(message3 + "\n")
 
 finally:
     driver.close()

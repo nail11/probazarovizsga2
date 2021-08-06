@@ -36,7 +36,7 @@ url = "https://witty-hill-0acfceb03.azurestaticapps.net/film_register.html"
 
 number_of_films = 24
 a_number = number_of_films+1
-film_title="Black widow"
+film_title = "Black widow"
 release_year = 2021
 chronological_year_of_events = 2020
 trailer_url = "https://www.youtube.com/watch?v=Fp9pNPdNwjI"
@@ -55,10 +55,16 @@ try:
 
     driver.find_element_by_xpath("/html/body/div[2]/div[1]/button").click()
 
-    JavaScript = "driver.find_element_by_xpath('/html/body/div[2]/div[2]/fieldset/button[1]').click();"
-    driver.execute_script(JavaScript)
+    #JavaScript = "driver.find_element_by_xpath('/html/body/div[2]/div[2]/fieldset/button[1]').click();"
+    #driver.execute_script(JavaScript)
 
+    cim1 = driver.find_element_by_id("nomeFilme")
+    cim2 = driver.find_element_by_xpath('//*[@id="nomeFilme"]')
+    driver.find_element_by_id("nomeFilme").send_keys("film_title")
     driver.find_element_by_xpath('//*[@id="nomeFilme"]').send_keys("film_title")
+    print(cim1)
+    print(cim2)
+    driver.find_element_by_xpath('//*[@id=""nomeFilme"]').send_keys("film_title")
     driver.find_element_by_xpath('//*[@id="anoLancamentoFilme"]').send_keys("release_year")
     driver.find_element_by_xpath('//*[@id="anoCronologiaFilme"]').send_keys("chronological_year_of_events")
     driver.find_element_by_xpath('//*[@id="linkTrailerFilme"]').send_keys("trailer_url")
